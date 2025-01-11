@@ -1,0 +1,24 @@
+회원가입
+
+/layout/footer.php
+
+세션 생성
+haruMarket_join_certification : 인증을 성공했는지에 대한 여부 (NO)
+
+/pages/join/join2_api.php
+
+세션 생성
+haruMarket_user_birthday
+haruMarket_user_gender
+haruMarket_user_name
+haruMarket_user_phone
+haruMarket_user_uniqueKey
+haruMarket_join_certification : 인증을 성공했는지에 대한 여부 (OK)
+
+/pages/join/join3.php
+
+세션 검증
+haruMarket_join_certification : 인증을 성공했는지에 대한 여부 (OK) 인지 확인
+
+------------------------------------------------------------------
+

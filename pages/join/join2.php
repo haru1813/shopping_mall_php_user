@@ -22,11 +22,12 @@
                     </h5>
                 </div>
                 <div class="card-footer">
-                    <button type="button" class="btn btn-primary">본인인증 하기</button>
+                    <button type="button" class="btn btn-primary" id="identity">본인인증 하기</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<script src="./join1.js?v=<?php echo rand(); ?>"></script>
+<script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+<script src="./join2.js?v=<?php echo rand(); ?>"></script>
 <?php include $_SERVER['DOCUMENT_ROOT']."/layout/footer.php";?>

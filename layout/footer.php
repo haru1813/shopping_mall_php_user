@@ -16,3 +16,8 @@
     <!-- <script src="/assets/js/secure.js?v=<?php echo rand(); ?>"></script> -->
     <script src="/assets/js/common.js?v=<?php echo rand(); ?>"></script>
 </html>
+
+<?php
+    //session_start();
+    //$_SESSION["haruMarket_join_certification"] = "NO";
+?>

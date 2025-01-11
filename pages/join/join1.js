@@ -20,11 +20,12 @@ let join1 = {
         }
     },
     allCheck: function(){
+        let allCheck = document.getElementById('allCheck');
         let check1 = document.getElementById('check1');
         let check2 = document.getElementById('check2');
 
-        check1.checked = !check1.checked;
-        check2.checked = !check2.checked;
+        check1.checked = allCheck.checked;
+        check2.checked = allCheck.checked;
     }
 }
 

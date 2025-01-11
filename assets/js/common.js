@@ -7,3 +7,24 @@ else {
     pc.style.width = (screen.width + 0) + "px";
     pc.style.display = 'block';
 }
+
+function ajax_send(formData, url){
+    let return_date;
+    $.ajax({
+      type: "POST",
+      url: url,
+      data: formData,
+      contentType: false,
+      processData: false,
+      async: false,
+      dataType: "json",
+      success: function (data) {
+        console.log(data);
+        return_date = data;
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        console.log(jqXHR.responseText);
+      },
+    });
+    return return_date;
+}
