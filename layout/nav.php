@@ -4,11 +4,14 @@
             <div class="row h-100">
                 <div class="col-2 d-flex justify-content-center align-items-center">
                     <ul class="nav">
+                        <?php
+                            session_start();
+
+                            if (isset($_SESSION['haruMarket_user_index']))
+                            {
+                        ?>
                         <li class="nav-item">
-                            <a class="nav-link text-black" aria-current="page" href="#">LOGIN</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-black" href="/pages/join/join1.php">JOIN</a>
+                            <a class="nav-link text-black" aria-current="page" href="/logout.php">LOGOUT</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-black" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">MY PAGE</a>
@@ -19,6 +22,20 @@
                                 <li><a class="dropdown-item" href="#">주문 조회</a></li>
                             </ul>
                         </li>
+                        <?php
+                            }
+                            else{
+                        ?>
+                        <li class="nav-item">
+                            <a class="nav-link text-black" aria-current="page" href="/pages/login/login.php">LOGIN</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-black" href="/pages/join/join1.php">JOIN</a>
+                        </li>
+                        <?php
+                            }
+                        ?>
+                        
                     </ul>
                 </div>
                 <div class="col-8 d-flex justify-content-center align-items-center">

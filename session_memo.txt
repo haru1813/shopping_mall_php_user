@@ -5,6 +5,8 @@
 세션 생성
 haruMarket_join_certification : 인증을 성공했는지에 대한 여부 (NO)
 
+---
+
 /pages/join/join2_api.php
 
 세션 생성
@@ -15,10 +17,56 @@ haruMarket_user_phone
 haruMarket_user_uniqueKey
 haruMarket_join_certification : 인증을 성공했는지에 대한 여부 (OK)
 
+---
+
 /pages/join/join3.php
+
+세션 검증
+haruMarket_join_certification : 인증을 성공했는지에 대한 여부 (OK) 인지 확인
+
+---
+
+/pages/join/join3_api.php
+
+세션 생성
+haruMarket_user_index : 회원가입 완료 시 동시에 로그인 인증 처리
+haruMarket_join_certification : 인증을 성공했는지에 대한 여부 (OK)
+
+---
+
+/pages/join/join4.php
 
 세션 검증
 haruMarket_join_certification : 인증을 성공했는지에 대한 여부 (OK) 인지 확인
 
 ------------------------------------------------------------------
 
+로그인
+
+/pages/login/login.php
+
+세션 검증
+haruMarket_user_index : 이미 로그인 인증이 되어있다면 해당 페이지로 접속 불가능
+
+---
+
+/pages/login/login_api.php
+
+세션 생성
+haruMarket_user_index : 로그인 성공 시 동시에 로그인 인증 처리
+
+------------------------------------------------------------------
+
+아이디 찾기 , 비밀번호 찾기
+
+/pages/find/id_find.php
+
+세션 검증
+haruMarket_user_index : 이미 로그인 인증이 되어있다면 해당 페이지로 접속 불가능
+
+---
+
+/pages/find/pw_find.php
+
+세션 검증
+haruMarket_user_index : 이미 로그인 인증이 되어있다면 해당 페이지로 접속 불가능

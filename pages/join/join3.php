@@ -2,15 +2,18 @@
 <?php include $_SERVER['DOCUMENT_ROOT']."/layout/nav.php";?>
 
 <?php
-    // session_start();
+    session_start();
 
-    // if (isset($_SESSION['haruMarket_join_certification'])){
-    //     $haruMarket_join_certification = $_SESSION['haruMarket_join_certification'];
+    if (isset($_SESSION['haruMarket_join_certification'])){
+        $haruMarket_join_certification = $_SESSION['haruMarket_join_certification'];
 
-    //     if($haruMarket_join_certification != "OK"){
-    //         echo "<script>location.href = '/index.php';</script>";
-    //     }
-    // }
+        if($haruMarket_join_certification != "OK"){
+            echo "<script>location.href = '/index.php';</script>";
+        }
+    }
+    else{
+        echo "<script>location.href = '/index.php';</script>";
+    }
 ?>
 
 <div class="container-fluid px-5 pt-5 pb-5">
@@ -37,9 +40,9 @@
                         <div id="haruMarket_user_pw_msg" class="form-text mb-2">
                             영소문자 또는 숫자만 포함하여 4~20자(20자) 입력하여주십시오.
                         </div>
-                        <label for="haruMarket_user_pw_check" class="form-label">* 비밀번호 확인</label>
-                        <input type="password" id="haruMarket_user_pw_check" class="form-control" aria-describedby="haruMarket_user_pw_check_msg">
-                        <div id="haruMarket_user_pw_check_msg" class="form-text mb-2">
+                        <label for="haruMarket_user_pwCheck" class="form-label">* 비밀번호 확인</label>
+                        <input type="password" id="haruMarket_user_pwCheck" class="form-control" aria-describedby="haruMarket_user_pwCheck_msg">
+                        <div id="haruMarket_user_pwCheck_msg" class="form-text mb-2">
                             입력하신 비밀번호를 한번 더 입력하여 주십시오.
                         </div>
 
@@ -56,7 +59,7 @@
                             </div>
                         </div>
                         <input type="text" id="haruMarket_user_basicAddress" class="form-control mb-1" placeholder="기본 주소" disabled readonly>
-                        <input type="text" id="haruMarket_user_detail_Address" class="form-control" placeholder="상세 주소">
+                        <input type="text" id="haruMarket_user_detailAddress" class="form-control" placeholder="상세 주소">
                     </h5>
                 </div>
                 <div class="card-footer">

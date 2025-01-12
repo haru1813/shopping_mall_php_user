@@ -18,6 +18,6 @@
 </html>
 
 <?php
-    //session_start();
-    //$_SESSION["haruMarket_join_certification"] = "NO";
+    session_start();
+    $_SESSION["haruMarket_join_certification"] = "NO";
 ?>
