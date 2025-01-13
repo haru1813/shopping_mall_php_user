@@ -16,8 +16,8 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-black" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">MY PAGE</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">회원 정보 수정</a></li>
-                                <li><a class="dropdown-item" href="#">비밀번호 변경</a></li>
+                                <li><a class="dropdown-item" href="/pages/user/change1.php">회원 정보 수정</a></li>
+                                <li><a class="dropdown-item" href="/pages/user/change2.php">비밀번호 변경</a></li>
                                 <li><a class="dropdown-item" href="#">장바구니</a></li>
                                 <li><a class="dropdown-item" href="#">주문 조회</a></li>
                             </ul>

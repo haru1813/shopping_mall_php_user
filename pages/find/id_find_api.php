@@ -100,6 +100,15 @@ function message($message,$code = "999"){
     $result = mysqli_query($con, $sql);
     $row = mysqli_fetch_assoc($result);
 
-    $haruMarket_user_id = $row["haruMarket_user_id"];
-    message("고객님의 아이디는 $haruMarket_user_id 입니다.","200");
+    $total_rows = mysqli_num_rows($result);
+
+    if($total_rows != 0){
+      $haruMarket_user_id = $row["haruMarket_user_id"];
+      message("고객님의 아이디는 $haruMarket_user_id 입니다.","200");
+    }
+    else{
+      message("고객님의 명의로 가입된 계정이 없습니다.","200");
+    }
+
+    
 ?>
