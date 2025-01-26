@@ -1,6 +1,6 @@
 <?php include $_SERVER['DOCUMENT_ROOT']."/layout/head.php";?>
 <?php include $_SERVER['DOCUMENT_ROOT']."/layout/nav.php";?>
-<div class="container-fluid px-5 pt-5 pb-5">
+<div class="container-fluid ps-4 pt-5 pb-5" style='padding-right: 2.6rem !important;'>
     <div class="row">
         <div class="col-12 d-flex justify-content-center align-items-center" style="height: 80px;">
             <span class="display-5 text-dark fw-bold">

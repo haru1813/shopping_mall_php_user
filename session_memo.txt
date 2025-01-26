@@ -82,3 +82,11 @@ haruMarket_user_index : 로그인 인증이 되어야 해당 페이지로 접속
 
 ---
 
+비밀번호 변경
+
+/pages/find/change2.php
+
+세션 검증
+haruMarket_user_index : 로그인 인증이 되어야 해당 페이지로 접속 불가능
+
+---

@@ -1,4 +1,4 @@
-        <nav class="navbar border border-1 border-secondary">
+        <nav class="navbar border-top border-1 border-secondary">
             <div class="container-fluid">
                 <a class="navbar-brand">
                     <p class="display-5 text-primary fw-bold">

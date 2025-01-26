@@ -1,6 +1,6 @@
 <body style="overflow-x: hidden;">
     <div id="pc">
-        <div class="container-fluid border border-1 border-secondary" style="height: 80px;">
+        <div class="container-fluid border-bottom border-1 border-secondary" style="height: 80px;">
             <div class="row h-100">
                 <div class="col-2 d-flex justify-content-center align-items-center">
                     <ul class="nav">
@@ -53,8 +53,8 @@
                 </div> 
             </div>
         </div>
-        <ul class="nav border-bottom border-1 border-secondary justify-content-center">
-            <li class="nav-item">
+        <ul class="nav border-bottom border-1 border-secondary justify-content-center" id="harumarket_productcategory">
+            <!-- <li class="nav-item">
                 <a class="nav-link text-black" aria-current="page" href="#">전체상품</a>
             </li>
             <li class="nav-item">
@@ -80,5 +80,6 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link text-black" aria-current="page" href="#">REVIEW</a>
-            </li>
+            </li> -->
         </ul>
+<script src="/layout/nav.js?v=<?php echo rand(); ?>"></script>
