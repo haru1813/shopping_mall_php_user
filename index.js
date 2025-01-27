@@ -2,10 +2,6 @@ let index = {
     swiper : new Swiper(".mySwiper", {
         slidesPerView: 6,
         spaceBetween: 10,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
         autoplay: {
             delay: 2500,
             disableOnInteraction: false,
@@ -35,13 +31,12 @@ let index = {
 
         const imgRegex = /<img[^>]*>/g;
 
-
         data.msg.forEach(function(item) {
             const imgTags = item.harumarket_product_picture.match(imgRegex);
             //console.log(imgTags);
             new_products.innerHTML += `
             <div class="col-2 pb-3">
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 18rem;" id="${item.harumarket_product_index}">
                     ${imgTags}
                     <div class="card-body">
                         <p class="card-title fs-6" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">${item.harumarket_product_name}</p>
@@ -52,6 +47,28 @@ let index = {
                 </div>
             </div>
             `;
+        });
+
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            const image = card.querySelector('img');
+            const cardBody = card.querySelector('.card-body');
+            
+            if (image) {
+              image.style.cursor = 'pointer';
+              image.addEventListener('click', function() {
+                localStorage.setItem("harumarket_product_index", card.id);
+                location.href = `/pages/product/product_detail.php`;
+              });
+            }
+            if (cardBody != null) {
+                const cardTitle = cardBody.querySelector('.card-title');
+                cardTitle.style.cursor = 'pointer';
+                    cardTitle.addEventListener('click', function() {
+                    localStorage.setItem("harumarket_product_index", card.id);
+                    location.href = `/pages/product/product_detail.php`;
+                });
+            }
         });
     },
     ajax_send: function(formData, url){
@@ -73,6 +90,10 @@ let index = {
           },
         });
         return return_date;
+    },
+    location_href: function(harumarket_product_index){
+        localStorage.setItem("harumarket_product_index", harumarket_product_index);
+        location.href = `/pages/product/product_detail.php`;
     },
     // next: function(){
     //     const check1 = document.getElementById('check1');

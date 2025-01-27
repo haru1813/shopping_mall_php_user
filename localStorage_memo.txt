@@ -1,0 +1,10 @@
+index.js -> /pages/product/product_detail.js
+
+index.js
+상품 클릭 시
+상품 인덱스 저장한 후에 이동
+localStorage.setItem("harumarket_product_index", card.id);
+
+/pages/product/product_detail.js
+let harumarket_product_index = localStorage.getItem("harumarket_product_index");
+상품 인덱스로 조회

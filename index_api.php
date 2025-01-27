@@ -19,7 +19,9 @@ if($type == "new_products"){
             ,   t1.harumarket_product_picture
             ,   format(t1.harumarket_product_originPrice,0) harumarket_product_originPrice
             ,   format(t1.harumarket_product_salePrice,0) harumarket_product_salePrice
+            ,   t1.harumarket_product_index
         from	harumarket_product t1
+        where   t1.harumarket_product_view=1
         order by t1.harumarket_product_insertTime desc
         limit 30;
     ";
