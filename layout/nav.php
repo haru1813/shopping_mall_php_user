@@ -18,7 +18,7 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="/pages/user/change1.php">회원 정보 수정</a></li>
                                 <li><a class="dropdown-item" href="/pages/user/change2.php">비밀번호 변경</a></li>
-                                <li><a class="dropdown-item" href="#">장바구니</a></li>
+                                <li><a class="dropdown-item" href="/pages/user/basket.php">장바구니</a></li>
                                 <li><a class="dropdown-item" href="#">주문 조회</a></li>
                             </ul>
                         </li>

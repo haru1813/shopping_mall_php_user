@@ -25,13 +25,12 @@
                             <p class="card-body mb-0" id="harumarket_options"></p>
 
                             <div class="d-grid gap-2 d-md-block mt-2">
-                                <button class="btn btn-success btn-sm" type="button">구매하기</button>
-                                <button class="btn btn-primary btn-sm" type="button">장바구니 담기</button>
-                                <button class="btn btn-primary btn-sm" type="button" id="test">장바구니 담기 테스트</button>
+                                <button class="btn btn-success btn-sm" type="button" id="buy">구매하기</button>
+                                <button class="btn btn-primary btn-sm" type="button" id="basket">장바구니 담기</button>
                             </div>
 
                             <span class="badge bg-info text-dark fs-6 mt-2">TOTAL(수량)</span>
-                            <span class="badge bg-info text-dark fs-6">0원 (0개)</span>
+                            <span class="badge bg-info text-dark fs-6" id="total">0원 (0개)</span>
                             <div class="d-grid gap-2 d-md-block mt-2">
                                 <button class="btn btn-secondary btn-sm" type="button" id="impl_up">상품 개수 증가</button>
                                 <button class="btn btn-secondary btn-sm" type="button" id="impl_down">상품 개수 감소</button>
