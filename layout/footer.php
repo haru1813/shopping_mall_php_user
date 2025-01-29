@@ -20,4 +20,5 @@
 <?php
     session_start();
     $_SESSION["haruMarket_join_certification"] = "NO";
+    $_SESSION["haruMarket_buy_ready"] = "NO";
 ?>

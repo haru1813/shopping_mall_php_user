@@ -129,8 +129,8 @@ if($type == "harumarket_userbasket"){
         }
         catch(Exception $e){
             $pdo->rollBack();
-            message($e->getMessage() ,"500");
-            //message("장바구니 등록을 실패하였습니다.","500");
+            //message($e->getMessage() ,"500");
+            message("장바구니 등록을 실패하였습니다.","500");
             return;
         }
     }

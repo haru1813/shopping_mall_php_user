@@ -21,12 +21,13 @@
                 <div class="card-body d-flex justify-content-center align-items-center m-0 p-0">
                     <div id="grid" class="h-100 w-100"></div>
                 </div>
-                <div class="m-0 p-0">
+                <div class="m-0 p-1">
                     <span class="badge bg-info text-dark fs-6 mt-2">TOTAL(수량)</span>
                     <span class="badge bg-info text-dark fs-6" id="total">0원 (0개)</span>
                 </div>
                 <div class="card-footer">
-                    <button type="button" class="btn btn-primary" id="change2">수정</button>
+                    <button type="button" class="btn btn-danger" id="delete">삭제</button>
+                    <button type="button" class="btn btn-primary" id="order">주문</button>
                 </div>
             </div>
         </div>

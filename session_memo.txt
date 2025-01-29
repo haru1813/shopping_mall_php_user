@@ -4,6 +4,7 @@
 
 세션 생성
 haruMarket_join_certification : 인증을 성공했는지에 대한 여부 (NO)
+haruMarket_buy_ready : 상품 구매가 가능한지에 대한 여부 (NO)
 
 ---
 
@@ -90,3 +91,23 @@ haruMarket_user_index : 로그인 인증이 되어야 해당 페이지로 접속
 haruMarket_user_index : 로그인 인증이 되어야 해당 페이지로 접속 불가능
 
 ---
+
+------------------------------------------------------------------
+
+구매
+
+/pages/buy/buy_api.php
+type : buy_ready
+
+세션 생성
+harumarket_userBasket_indexs : 장바구니 인덱스
+harumarket_userBuy : 구매할 상품들 정보
+haruMarket_buy_ready : 상품 구매가 가능한지에 대한 여부 (OK)
+
+---
+
+/pages/buy/buy.php
+
+세션 검증
+haruMarket_user_index : 로그인 인증이 되어야 해당 페이지로 접속 불가능
+haruMarket_buy_ready : 인증을 성공했는지에 대한 여부 (OK) 인지 확인

@@ -18,6 +18,7 @@ function message($message,$code = "999"){
         $sql = "
         select
                     t1.harumarket_userBasket_index
+                ,   t2.harumarket_product_index
                 ,	t2.harumarket_product_picture
                 ,	t2.harumarket_product_name
                 ,	t1.harumarket_productColor_index
@@ -40,5 +41,30 @@ function message($message,$code = "999"){
 
         message($data,200);
         return;
+    }
+    if($type == "basket_delete"){
+        session_start();
+        $haruMarket_user_index = $_SESSION['haruMarket_user_index'];
+        $harumarket_userBasket_index = $_POST["harumarket_userBasket_index"];
+
+        include($_SERVER["DOCUMENT_ROOT"].'/db/db_connect2.php');
+        $pdo->beginTransaction();
+
+        try{
+            $sql = "delete from harumarket_userbasket where haruMarket_user_index=? and harumarket_userBasket_index=?;";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(1, $haruMarket_user_index);
+            $stmt->bindParam(2, $harumarket_userBasket_index);
+            $stmt->execute();
+            $pdo->commit();
+
+            message("장바구니 상품을 삭제하였습니다.","200");
+        }
+        catch(Exception $e){
+            $pdo->rollBack();
+            //message($e->getMessage() ,"500");
+            message("장바구니 상품 삭제를 실패하였습니다.","500");
+            return;
+        }
     }
 ?>
