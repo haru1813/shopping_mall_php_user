@@ -360,7 +360,35 @@ let product_detail = {
             document.getElementById("total").innerText = `${total_price.toLocaleString('ko-KR')}원 (${total_count}개)`;
         }
     },
-    buy:function(){},
+    buy:function(){
+        let allData = product_detail.grid.getData();
+
+        if(allData.length == 0){
+            toastr.error("상품 옵션을 선택하여 주십시오.");
+        }
+        else{
+            const harumarket_userBuy = [];
+            allData.forEach(function(data, index) {
+                const harumarket_userBuyItem = {};
+                harumarket_userBuyItem["harumarket_product_index"] = data.harumarket_product_index;
+                harumarket_userBuyItem["harumarket_productColor_index"] = data.harumarket_productColor_index !== undefined ? data.harumarket_productColor_index : 0; 
+                harumarket_userBuyItem["harumarket_productSize_index"] = data.harumarket_productSize_index !== undefined ? data.harumarket_productSize_index : 0; 
+                harumarket_userBuyItem["harumarket_product_count"] = data.harumarket_product_account; 
+
+                harumarket_userBuy.push(harumarket_userBuyItem);
+            });
+
+            var formData = new FormData();
+            formData.append("type", "buy_ready");
+            formData.append("harumarket_userBasket_indexs", "");
+            formData.append("harumarket_userBuy", JSON.stringify(harumarket_userBuy));
+            data = product_detail.ajax_send(formData,"/pages/buy/buy_api.php");
+
+            if(data.code == "200"){
+                location.href = "/pages/buy/buy.php";
+            }
+        }
+    },
     basket:function(){
         let allData = product_detail.grid.getData();
 
