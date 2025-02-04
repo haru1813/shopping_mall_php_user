@@ -38,6 +38,10 @@ let buy = {
                 }
             }
         });
+
+        let formData = new FormData();
+        formData.append("type", "testtest");
+        data = ajax_send(formData,"./buy_api.php");
     },
     information_find: function(){
         let formData = new FormData();
@@ -140,28 +144,92 @@ let buy = {
         location.href = `/pages/product/product_detail.php`;
     },
     purchase:function(pay_method_value){
+        let haruMarket_user_name = document.getElementById('haruMarket_user_name').value;
+        let haruMarket_user_postCode = document.getElementById('haruMarket_user_postCode').value;
+        let haruMarket_user_basicAddress = document.getElementById('haruMarket_user_basicAddress').value;
+        let haruMarket_user_detailAddress = document.getElementById('haruMarket_user_detailAddress').value;
+
+        if(haruMarket_user_name == ""){
+            toastr.error('받는 사람 이름이 입력되지 않았습니다.');
+            document.getElementById('haruMarket_user_name').focus();
+            return;
+        }
+        if(haruMarket_user_name.length > 20){
+            toastr.error('이름은 20자를 넘지 않도록 입력하여 주십시오.');
+            document.getElementById('haruMarket_user_name').focus();
+            return;
+        }
+        if(haruMarket_user_postCode == "" || haruMarket_user_basicAddress == ""){
+            toastr.error('우편번호 버튼을 클릭하여 주소를 검색하여 주십시오.');
+            return;
+        }
+        if(haruMarket_user_detailAddress == ""){
+            toastr.error('상세 주소가 입력되지 않았습니다.');
+            document.getElementById('haruMarket_user_detailAddress').focus();
+            return;
+        }
+        if(haruMarket_user_detailAddress.length > 30){
+            toastr.error('상세 주소는 30자를 넘지 않도록 입력하여 주십시오.');
+            document.getElementById('haruMarket_user_detailAddress').focus();
+            return;
+        }
+
+        let formData = new FormData();
+        formData.append("type", "product_buy_try");
+        data = ajax_send(formData,"./buy_api.php");
+
         IMP.init("imp43126142");
         IMP.request_pay(
             {
                 pg: "html5_inicis", // PG사 코드표에서 선택
                 pay_method: pay_method_value, // 결제 방식
-                merchant_uid: `test`, // 결제 고유 번호
-                name: "harumarket", // 제품명
-                amount: 1000, // 가격
+                merchant_uid: `harumarket_${data.msg.haruMarket_user_phone}_${buy.merchant_uid_output()}`, // 결제 고유 번호
+                name: `harumarket_${data.msg.haruMarket_user_phone}_${buy.merchant_uid_output()}`, // 제품명
+                amount: data.msg.harumarket_product_salePrice, // 가격
                 //구매자 정보 ↓
                 buyer_email: "",
-                buyer_name: "박하루",
-                buyer_tel: "???",
-                //buyer_addr: document.getElementById("order_address").value,
-                //buyer_postcode: document.getElementById("order_postcode").value,
-                //m_redirect_url: window.location.origin + "/common/account2.php",
+                buyer_name: haruMarket_user_name,
+                buyer_tel: data.msg.haruMarket_user_phone,
+                buyer_addr: `${haruMarket_user_basicAddress} ${haruMarket_user_detailAddress}`,
+                buyer_postcode: haruMarket_user_postCode,
                 },
                 function (rsp) {
                 if (rsp.success) {
                     // 인증 성공 시 로직,
+                    //console.log(rsp);
+
+                    let formData = new FormData();
+                    formData.append("type", "product_buy");
+                    formData.append("haruMarket_BuyMaster_order", rsp.merchant_uid);
+                    formData.append("haruMarket_BuyMaster_buyerName", rsp.buyer_name);
+                    formData.append("haruMarket_BuyMaster_buyerPostcode", rsp.buyer_postcode);
+                    formData.append("haruMarket_BuyMaster_buyerAddr", rsp.buyer_addr);
+                    formData.append("haruMarket_BuyMaster_buyerMethod", rsp.pay_method);
+                    formData.append("haruMarket_BuyMaster_amount", rsp.paid_amount);
+                    data = ajax_send(formData,"./buy_api.php");
+
+                    if(data.code == "200"){
+                        location.href="./buy_complete.php";
+                    }
+                    else{
+                        toastr.error(data.msg);
+                    }
                 }
             }
         );
+    },
+    merchant_uid_output:function(){
+        const today = new Date();
+
+        const year = today.getFullYear();
+        const month = String(today.getMonth() + 1).padStart(2, '0'); // 월은 0부터 시작하므로 1을 더하고, 2자리로 맞춤
+        const day = String(today.getDate()).padStart(2, '0'); // 2자리로 맞춤
+        const hours = String(today.getHours()).padStart(2, '0'); // 2자리로 맞춤
+        const minutes = String(today.getMinutes()).padStart(2, '0'); // 2자리로 맞춤
+
+        const formattedDate = `${year}${month}${day}${hours}${minutes}`;
+
+        return formattedDate;
     },
 }
 

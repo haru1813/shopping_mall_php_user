@@ -16,4 +16,5 @@
     <script type="text/javascript" src="/node_modules/toastr/build/toastr.min.js"></script>
     <script type="text/javascript" src="/node_modules/swiper/swiper-bundle.min.js"></script>
     <script type="text/javascript" src="/node_modules/tui-grid/dist/tui-grid.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.twbsPagination.min.js"></script>
 </head>

@@ -36,4 +36,30 @@ if($type == "new_products"){
     message($data,200);
     return;
 }
+if($type == "advertise"){
+    include($_SERVER["DOCUMENT_ROOT"].'/db/db_connect1.php');
+
+    $sql = "
+        select 
+            t1.harumarket_product_name
+            ,	t1.harumarket_product_insertTime
+            ,   t1.harumarket_product_picture
+            ,   format(t1.harumarket_product_originPrice,0) harumarket_product_originPrice
+            ,   format(t1.harumarket_product_salePrice,0) harumarket_product_salePrice
+            ,   t1.harumarket_product_index
+        from	harumarket_product t1
+        where   t1.harumarket_product_view=1
+        and     t1.harumarket_product_advertiseView=1;
+    ";
+
+    $result = mysqli_query($con, $sql);
+
+    $data = array();
+    while($row = $result->fetch_assoc()) {
+        $data[] = $row;
+    }
+
+    message($data,200);
+    return;
+}
 ?>

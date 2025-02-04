@@ -71,6 +71,19 @@ if($type == "harumarket_product_optionSelect"){
     message($data,200);
     return;
 }
+if($type == "harumarket_loginCheck"){
+    session_start();
+    $haruMarket_user_index = $_SESSION['haruMarket_user_index'];
+
+    if($haruMarket_user_index == null){
+        message("로그인 후에 해당 기능을 이용하여 주십시오.","500");
+        return;
+    }
+    else{
+        message("로그인 인증 됨","200");
+        return;
+    }
+}
 if($type == "harumarket_userbasket"){
     session_start();
     $haruMarket_user_index = $_SESSION['haruMarket_user_index'];
@@ -78,11 +91,6 @@ if($type == "harumarket_userbasket"){
     $harumarket_productColor_index = $_POST["harumarket_productColor_index"];
     $harumarket_productSize_index = $_POST["harumarket_productSize_index"];
     $harumarket_userBasket_account = $_POST["harumarket_userBasket_account"];
-
-    if($haruMarket_user_index == null){
-        message("로그인 후에 장바구니를 담아주십시오.","500");
-        return;
-    }
 
     include($_SERVER["DOCUMENT_ROOT"].'/db/db_connect1.php');
     $sql = "SELECT * FROM harumarket_userbasket where haruMarket_user_index='$haruMarket_user_index';";

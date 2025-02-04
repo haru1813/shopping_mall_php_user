@@ -367,6 +367,15 @@ let product_detail = {
             toastr.error("상품 옵션을 선택하여 주십시오.");
         }
         else{
+            var formData = new FormData();
+            formData.append("type", "harumarket_loginCheck");
+            data = this.ajax_send(formData,"./product_detail_api.php");
+
+            if(data.code != "200"){
+                toastr.error(data.msg);
+                return;
+            }
+
             const harumarket_userBuy = [];
             allData.forEach(function(data, index) {
                 const harumarket_userBuyItem = {};
@@ -396,8 +405,17 @@ let product_detail = {
             toastr.error("상품 옵션을 선택하여 주십시오.");
         }
         else{
+            var formData = new FormData();
+            formData.append("type", "harumarket_loginCheck");
+            data = this.ajax_send(formData,"./product_detail_api.php");
+
+            if(data.code != "200"){
+                toastr.error(data.msg);
+                return;
+            }
+
             allData.forEach(function(data, index) {
-                var formData = new FormData();
+                formData = new FormData();
                 formData.append("type", "harumarket_userbasket");
                 formData.append("harumarket_product_index", product_detail.harumarket_product_index);
                 formData.append("harumarket_productColor_index", data.harumarket_productColor_index !== undefined ? data.harumarket_productColor_index : 0);

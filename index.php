@@ -15,10 +15,8 @@
         <div class="col-12">
             <!-- Swiper -->
             <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    <?php
-                    for ($i = 0; $i < 30; $i++){
-                    ?>
+                <div class="swiper-wrapper" id="advertise">
+
                     <div class="swiper-slide">
                         <div class="card" style="width: 18rem;">
                             <img src="https://classic-blanc.com/web/product/big/202412/a981724593eea665e6910065f17a301b.webp" alt="image" contenteditable="false">
@@ -30,9 +28,6 @@
                             <span class="badge rounded-pill text-bg-success">무료배송</span> 
                         </div>
                     </div>
-                    <?php
-                    }
-                    ?>
                     
                 </div>
                 <div class="swiper-button-next"></div>

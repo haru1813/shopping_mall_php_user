@@ -19,7 +19,7 @@
                                 <li><a class="dropdown-item" href="/pages/user/change1.php">회원 정보 수정</a></li>
                                 <li><a class="dropdown-item" href="/pages/user/change2.php">비밀번호 변경</a></li>
                                 <li><a class="dropdown-item" href="/pages/user/basket.php">장바구니</a></li>
-                                <li><a class="dropdown-item" href="#">주문 조회</a></li>
+                                <li><a class="dropdown-item" href="/pages/user/order.php">주문 조회</a></li>
                             </ul>
                         </li>
                         <?php
@@ -45,8 +45,8 @@
                 </div> 
                 <div class="col-2 d-flex align-items-center">
                     <div class="input-group m-3">
-                        <input type="text" class="form-control" placeholder="상품을 검색하세요." aria-label="Search" style="width:20px;">
-                        <button class="btn btn-outline-secondary" type="button">
+                        <input type="text" class="form-control" placeholder="상품을 검색하세요." aria-label="Search" style="width:20px;" id="haruMarket_productCategory_name_search">
+                        <button class="btn btn-outline-secondary" type="button" id="haruMarket_productCategory_name_searchbtn">
                             <i class="bi bi-search"></i>
                         </button>
                     </div>

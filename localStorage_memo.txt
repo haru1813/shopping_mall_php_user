@@ -1,5 +1,4 @@
 index.js -> /pages/product/product_detail.js
-
 index.js
 상품 이미지나 텍스트 클릭 시
 상품 인덱스 저장한 후에 이동
@@ -13,6 +12,36 @@ location.href = `/pages/product/product_detail.php`;
 localStorage.setItem("harumarket_product_index", row.harumarket_product_index);
 location.href = `/pages/product/product_detail.php`;
 
+/pages/user/order.js -> /pages/product/product_detail.js
+/pages/user/order.js
+상품 이미지나 텍스트 클릭 시
+상품 인덱스 저장한 후에 이동
+localStorage.setItem("harumarket_product_index", row.harumarket_product_index);
+location.href = `/pages/product/product_detail.php`;
+
 /pages/product/product_detail.js
 let harumarket_product_index = localStorage.getItem("harumarket_product_index");
 상품 인덱스로 조회
+
+-------------------------
+
+/layout/nav.js -> /pages/product/product_list.js
+/layout/nav.js
+상품 카테고리 클릭 시
+상품 카테고리 인덱스 저장한 후에 이동
+localStorage.setItem("haruMarket_productCategory_index", haruMarket_productCategory_index);
+location.href = `/pages/product/product_list.php`;
+
+/pages/product/product_list.js
+product_list.js
+localStorage.getItem("haruMarket_productCategory_index")
+상품 카테고리 인덱스로 조회
+
+-------------------------
+
+/layout/nav.js -> /pages/product/product_search.js
+/layout/nav.js
+상품 카테고리 검색창에서 상품명 입력 후에
+상품 카테고리 상품명 저장한 후에 이동
+localStorage.setItem("harumarket_product_name", document.getElementById('haruMarket_productCategory_name_search').value);
+location.href = `/pages/product/product_search.php`;

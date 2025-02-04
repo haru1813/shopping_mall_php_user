@@ -42,9 +42,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 pt-2 text-center" id="harumarket_product_content">
-
-        </div>
+        
+        <div class="col-12 pt-2 text-center" id="harumarket_product_content"></div>
+        
     </div>
 </div>
 <script src="./product_detail.js?v=<?php echo rand(); ?>"></script>

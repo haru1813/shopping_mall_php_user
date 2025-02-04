@@ -42,7 +42,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <button type="button" class="btn btn-primary">주문 현황으로 이동</button>
+                    <button type="button" class="btn btn-primary" onclick="location.href='/pages/user/order.php'">주문 조회로 이동</button>
                 </div>
             </div>
         </div>
